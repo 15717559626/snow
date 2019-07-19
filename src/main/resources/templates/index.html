@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/time.js"></script>
+    <style>
+        .grid-sizer,
+        .grid-item {float: left; margin-bottom: 15px;}
+        .grid-item img{ width: 100%; }
+    </style>
+    <title>Document</title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+    <script>
+        window.onload = function()
+        {
+
+            var now = new Date();
+            var reg = /^\s*([1-9]\d{3})\-(\d{1,2})\-(\d{1,2})\s*$/;
+            //var _end1 = document.getElementById("end1").innerHTML;
+            var _end1 = "2016-02-20";
+            if (!reg.test(_end1))
+            {
+                throw new Error("Date Format Is Error !");
+                return;
+            }
+            var end1 = new Date(_end1.replace(reg, "$1"), parseInt(_end1.replace(reg, "$2")) - 1, _end1.replace(reg,
+
+                "$3"));
+            document.getElementById("end2").innerHTML = Math.round((now - end1)/(1000*60*60*24)) - 1;
+        }
+        http:// init Masonry
+            var $grid = $('.grid').masonry({
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-sizer',
+                percentPosition: true
+            });
+
+        http:// layout Masonry after each image loads
+            $grid.imagesLoaded().progress( function() {
+                $grid.masonry('layout');
+            });
+    </script>
+</head>
+<img>
+
+
+        <div class="timercon" align="center" style="color: teal ">
+            <span style="font-size: 40px">我们在一起</span>
+            <div id="timer"></div>
+        </div>
+
+<div class="container-fluid">
+    <div class="grid">
+        <div class="grid-sizer col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife1.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife2.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife3.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife4.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife5.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife6.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife7.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife8.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife9.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife10.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife11.JPG">
+        </div>
+        <div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="images/wife12.JPG">
+        </div>
+    </div>
+</div>
+
+    <div>
+        <span style="font-size: 80px;color: chartreuse;">老婆我爱你（づ￣3￣）づ╭❤～</span>
+    </div>
+</img>
+
+</body>
+</html>
