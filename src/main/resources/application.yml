@@ -3,3 +3,13 @@ server:
 spring:
   thymeleaf:
     cache: false
+  redis:
+    host: 119.23.37.28
+    port: 6379
+    password: lish123
+    timeout: 5000
+    jedis:
+      pool:
+        max-idle: 100
+        max-active: 100
+        max-wait: 100000
