@@ -8,10 +8,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class SnowApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SnowApplication.class);
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(SnowApplication.class, args);
