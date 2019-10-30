@@ -13,3 +13,23 @@ spring:
         max-idle: 100
         max-active: 100
         max-wait: 100000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.23.37.28:3306/snow?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: '!Aa19951225'
+
+
+    jpa:
+      show-sql: true
+jwt:
+  tokenHeader: Authorization
+  tokenPrefix: Bearer
+  secret: lishjwt
+  expiration: 3600
+  rememberExpiration: 604800
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.sun.snow.module.*.entity
+  configuration:
+    map-underscore-to-camel-case: true
