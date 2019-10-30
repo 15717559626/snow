@@ -2,15 +2,15 @@ package com.sun.snow.module.wxopen.service.impl;
 
 import com.sun.snow.config.RobotContant;
 import com.sun.snow.config.WeChatContant;
-import com.sun.snow.http.HttpClientHandler;
-import com.sun.snow.http.ResponseEntity;
 import com.sun.snow.module.wxopen.model.ArticleItem;
 import com.sun.snow.module.wxopen.service.WeChatService;
 import com.sun.snow.util.DateUtil;
+import com.sun.snow.util.RestTemplateUtils;
 import com.sun.snow.util.WxMessageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +29,7 @@ public class WeChatServiceImpl implements WeChatService {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private HttpClientHandler httpClientHandler;
+    private RestTemplateUtils restTemplateUtils;
 
     @Override
     public String processRequest(HttpServletRequest request) {
@@ -72,8 +72,8 @@ public class WeChatServiceImpl implements WeChatService {
                                 +"&api_key=" + RobotContant.APIKEY
                                 +"&api_secret=" + RobotContant.APISECRET;
                         //调用笨笨的机器人
-                        ResponseEntity responseEntity = httpClientHandler.postJsonEntity(url,"");
-                        respXml = WxMessageUtil.sendTextMsg(requestMap,responseEntity.getStrResult());
+                        String result = restTemplateUtils.post(url,"", MediaType.APPLICATION_JSON);
+                        respXml = WxMessageUtil.sendTextMsg(requestMap,result);
                     }
                     return respXml;
                 case WeChatContant.REQ_MESSAGE_TYPE_IMAGE :

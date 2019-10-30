@@ -33,3 +33,18 @@ mybatis-plus:
   type-aliases-package: com.sun.snow.module.*.entity
   configuration:
     map-underscore-to-camel-case: true
+# 代理的host
+httpclient:
+  config:
+    retryTime: 3
+    keepAliveTime: 30
+    connMaxTotal: 20
+    maxPerRoute: 20
+    connectTimeout: 2000
+    connectRequestTimeout: 2000
+    socketTimeout: 2000
+    timeToLive: 60
+logging:
+  level:
+    root: info
+    org.springframework: info
